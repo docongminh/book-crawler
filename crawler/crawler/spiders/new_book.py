@@ -86,7 +86,7 @@ class BookCover(scrapy.Spider):
         end
         """
         for url in urls:
-            yield SplashRequest(url=url, endpoint = "render.html", callback=self.parse)
+            yield SplashRequest(url=url, endpoint = "render.html", callback=self.parse_detail)
     
     def parse_detail(self, response):
         """
