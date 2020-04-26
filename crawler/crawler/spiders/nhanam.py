@@ -69,6 +69,7 @@ class BookCover(scrapy.Spider):
 
             next_page = response.css('div .pager').css('a[class=next]::attr(href)').extract_first()
             if next_page is not None :
+                next_link = "http://nhanam.com.vn" + next_page
                 yield response.follow(next_page, callback=self.parse_detail)
         except Exception as e:
             with open('logs_detail.txt', 'a') as f:
